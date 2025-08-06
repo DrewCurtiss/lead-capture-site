@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Claim Confidence Check | Lead Capture</title>
+    <style>
+      /* Modern, sleek styling */
+      :root {
+        --primary-color: #0b3c5d;
+        --secondary-color: #328cc1;
+        --accent-color: #d9b310;
+        --bg-color: #f7f9fc;
+        --card-bg: #ffffff;
+        --text-color: #333;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg-color);
+        color: var(--text-color);
+      }
+      header {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: #fff;
+        padding: 60px 20px;
+        text-align: center;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2.2rem;
+        letter-spacing: 1px;
+      }
+      header p {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        opacity: 0.9;
+      }
+      main {
+        max-width: 680px;
+        margin: -40px auto 40px auto;
+        background: var(--card-bg);
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        position: relative;
+        z-index: 1;
+      }
+      form label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
+      }
+      form input,
+      form select,
+      form textarea {
+        width: 100%;
+        padding: 12px;
+        margin-top: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.95rem;
+        background: #fafafa;
+      }
+      form textarea {
+        resize: vertical;
+      }
+      form button {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        margin-top: 25px;
+        background: var(--primary-color);
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+      form button:hover {
+        background: var(--secondary-color);
+      }
+      p.disclaimer {
+        font-size: 0.85rem;
+        color: #666;
+        margin-top: 30px;
+        text-align: center;
+      }
+      @media (max-width: 600px) {
+        header {
+          padding: 40px 20px;
+        }
+        header h1 {
+          font-size: 1.8rem;
+        }
+        main {
+          margin: -30px 15px 30px 15px;
+          padding: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Claim Confidence Check</h1>
+      <p>Free second look at your homeowners insurance claim</p>
+    </header>
+    <main>
+      <p>
+        If your homeowners insurance claim has been denied or you feel the
+        settlement is too low, let us help you. Fill out this short form and we’ll
+        contact you to schedule a free, no‑obligation review. You don’t need a
+        credit card, and there are no fees for the consultation.
+      </p>
+      <form action="#" method="post">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="(555) 555‑1234" required />
+
+        <label for="city">City</label>
+        <input type="text" id="city" name="city" placeholder="City" required />
+
+        <label for="zip">ZIP Code</label>
+        <input type="text" id="zip" name="zip" placeholder="ZIP Code" required />
+
+        <label for="claimType">Type of Claim</label>
+        <select id="claimType" name="claimType" required>
+          <option value="fire">Fire/Wildfire</option>
+          <option value="water">Water Damage</option>
+          <option value="wind">Wind/Hail</option>
+          <option value="theft">Theft/Vandalism</option>
+          <option value="earthquake">Earthquake/Other</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="status">Claim Status</label>
+        <select id="status" name="status" required>
+          <option value="denied">Denied</option>
+          <option value="underpaid">Underpaid/Low Settlement</option>
+          <option value="delay">Delayed</option>
+        </select>
+
+        <label for="details">Brief Description of Your Claim</label>
+        <textarea id="details" name="details" rows="4" placeholder="Provide any important details"></textarea>
+
+        <button type="submit">Get Your Free Review</button>
+      </form>
+      <p class="disclaimer">
+        By submitting this form, you agree to be contacted by Claim Confidence Check.
+        We respect your privacy and will not share your information.
+      </p>
+    </main>
+  </body>
+</html>
