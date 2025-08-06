@@ -157,9 +157,11 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     /* Use a gradient and play icon to hint at a video; this avoids linking to external resources */
-    /* Replace the video placeholder with a real animated explainer. The image
-       element inside .video-container will display our GIF when viewed. */
-    .video-container img {
+    /* Replace the video placeholder with a real explainer video. Both <img> and
+       <video> elements inside .video-container inherit these styles so the
+       responsive layout and rounded corners remain consistent. */
+    .video-container img,
+    .video-container video {
       width: 100%;
       height: auto;
       display: block;
@@ -260,11 +262,12 @@
   <section class="video-section">
     <h3>See How a Second Look Can Unlock More Money</h3>
     <div class="video-container">
-      <!-- Real explainer content: an animated GIF demonstrating the value of a second look -->
-      <img src="explainer.gif" alt="Explainer video: discover the benefits of a second opinion" />
+      <!-- Real explainer content: embed the MP4 video illustrating how a second look can benefit you -->
+      <video src="explainer.mp4" controls autoplay muted loop
+             aria-label="Explainer video detailing benefits of a second opinion"></video>
     </div>
     <p class="video-caption">
-      Our short explainer demonstrates how our experts uncover overlooked coverage and help you recover more when your claim has been denied or underpaid.
+      Watch this brief explainer to see how our experts uncover overlooked coverage and help you recover more when your claim has been denied or underpaid—all at no cost to you.
     </p>
   </section>
 
