@@ -3,13 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Claim Confidence Check | Lead Capture</title>
+    <title>Claim Confidence Check | Second‑Look Service</title>
     <style>
       /* Modern, sleek styling */
       :root {
         --primary-color: #0b3c5d;
         --secondary-color: #328cc1;
         --accent-color: #d9b310;
+        --urgent-color: #c0392b; /* new urgent accent for time‑sensitive messaging */
         --bg-color: #f7f9fc;
         --card-bg: #ffffff;
         --text-color: #333;
@@ -24,28 +25,86 @@
       header {
         background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         color: #fff;
-        padding: 60px 20px;
+        padding: 80px 20px;
         text-align: center;
+        position: relative;
       }
       header h1 {
         margin: 0;
-        font-size: 2.2rem;
+        font-size: 2.5rem;
         letter-spacing: 1px;
       }
       header p {
-        margin-top: 10px;
-        font-size: 1.2rem;
-        opacity: 0.9;
+        margin-top: 15px;
+        font-size: 1.1rem;
+        opacity: 0.95;
+        max-width: 620px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* call‑to‑action button in hero */
+      .cta-button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 14px 30px;
+        background: var(--accent-color);
+        color: #fff;
+        border-radius: 5px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transition: background 0.3s ease;
+        animation: pulse 2.5s infinite;
+      }
+      .cta-button:hover {
+        background: var(--secondary-color);
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
       }
       main {
-        max-width: 680px;
-        margin: -40px auto 40px auto;
+        max-width: 720px;
+        margin: -50px auto 50px auto;
         background: var(--card-bg);
-        padding: 30px;
-        border-radius: 10px;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 40px 30px 35px 30px;
+        border-radius: 12px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
         position: relative;
         z-index: 1;
+        animation: fadeInUp 0.8s ease-out both;
+      }
+
+      /* banner to call out urgency above the form */
+      .info-banner {
+        background: var(--urgent-color);
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        font-weight: 600;
+        text-align: center;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
       }
       form label {
         display: block;
@@ -106,16 +165,18 @@
   <body>
     <header>
       <h1>Claim Confidence Check</h1>
-      <p>Free second look at your homeowners insurance claim</p>
+      <p>Have you been denied or underpaid on your homeowners insurance claim? Get the compensation you deserve.</p>
+      <!-- primary call to action link to form -->
+      <a href="#review-form" class="cta-button">Start Your Free Review Now</a>
     </header>
     <main>
+      <div class="info-banner">
+        Time is critical! Insurers have strict deadlines for appeals — don’t let your window close. Request your free review immediately.
+      </div>
       <p>
-        If your homeowners insurance claim has been denied or you feel the
-        settlement is too low, let us help you. Fill out this short form and we’ll
-        contact you to schedule a free, no‑obligation review. You don’t need a
-        credit card, and there are no fees for the consultation.
+        If your homeowners insurance claim has been denied or you feel the settlement is too low, we’re here to advocate for you. Provide your details below and our experts will contact you to schedule a free, no‑obligation review. There are no up‑front fees — just peace of mind.
       </p>
-      <form action="#" method="post">
+      <form id="review-form" action="#" method="post">
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="Your full name" required />
 
@@ -151,7 +212,7 @@
         <label for="details">Brief Description of Your Claim</label>
         <textarea id="details" name="details" rows="4" placeholder="Provide any important details"></textarea>
 
-        <button type="submit">Get Your Free Review</button>
+        <button type="submit">Get My Free Review Now</button>
       </form>
       <p class="disclaimer">
         By submitting this form, you agree to be contacted by Claim Confidence Check.
