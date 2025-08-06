@@ -30,9 +30,22 @@
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--bg-color);
       color: var(--text-color);
       line-height: 1.6;
+      /*
+        Apply a rich gradient fade overlaid with a subtle fleur‑de‑lis pattern.
+        The first layer is a diagonal gradient between our primary and secondary
+        colours, while the second layer uses a very faint symbol repeated
+        throughout the page. The pattern is encoded as an inline SVG to avoid
+        additional network requests. Adjust the background sizes to tweak the
+        scale of the motif.
+      */
+      background-image:
+        linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%),
+        url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%27100%27%20height%3D%27100%27%3E%3Ctext%20x%3D%2750%27%20y%3D%2760%27%20font-size%3D%2780%27%20text-anchor%3D%27middle%27%20fill%3D%27rgba%28255%2C255%2C255%2C0.05%29%27%20dominant-baseline%3D%27middle%27%3E%E2%9A%9C%3C/text%3E%3C/svg%3E");
+      background-repeat: no-repeat, repeat;
+      background-size: cover, 100px 100px;
+      background-attachment: fixed;
     }
 
     /* Header with animated messages */
@@ -144,37 +157,13 @@
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     /* Use a gradient and play icon to hint at a video; this avoids linking to external resources */
-    .video-placeholder {
+    /* Replace the video placeholder with a real animated explainer. The image
+       element inside .video-container will display our GIF when viewed. */
+    .video-container img {
       width: 100%;
-      height: 0;
-      padding-bottom: 56.25%; /* 16:9 ratio */
-      background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
-      position: relative;
-    }
-    .video-placeholder::before {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.8);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      animation: pulse 2s infinite;
-    }
-    .video-placeholder::after {
-      content: "";
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-40%, -50%);
-      border-style: solid;
-      border-width: 12px 0 12px 20px;
-      border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+      height: auto;
+      display: block;
+      border-radius: 10px;
     }
     .video-caption {
       margin-top: 10px;
@@ -271,10 +260,11 @@
   <section class="video-section">
     <h3>See How a Second Look Can Unlock More Money</h3>
     <div class="video-container">
-      <div class="video-placeholder"></div>
+      <!-- Real explainer content: an animated GIF demonstrating the value of a second look -->
+      <img src="explainer.gif" alt="Explainer video: discover the benefits of a second opinion" />
     </div>
     <p class="video-caption">
-      This simulated video shows how our experts can find overlooked coverage and help you recover more when your claim has been denied or underpaid.
+      Our short explainer demonstrates how our experts uncover overlooked coverage and help you recover more when your claim has been denied or underpaid.
     </p>
   </section>
 
