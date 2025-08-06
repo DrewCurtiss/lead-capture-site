@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Claim Confidence Check | Animated Lead Capture</title>
+  <style>
+    /*
+      Video Lead Capture Page
+      This page blends motion and strong messaging to encourage homeowners to
+      reconsider denied or under‑paid insurance claims. A series of animated
+      headlines cycles through key benefits, while a call‑to‑action button
+      guides visitors to the lead form. A simulated video panel reinforces
+      the idea of a multimedia explanation without requiring an actual video
+      file.
+    */
+
+    :root {
+      --primary-color: #0b3c5d;
+      --secondary-color: #328cc1;
+      --accent-color: #db9b10;
+      --urgent-color: #c0392b;
+      --bg-color: #f7f9fc;
+      --card-bg: #ffffff;
+      --text-color: #333;
+      --video-bg: #eef5fd;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    /* Header with animated messages */
+    header {
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: #fff;
+      text-align: center;
+      padding: 100px 20px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      letter-spacing: 1px;
+      animation: fadeInDown 1s forwards;
+    }
+    header h2 {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      font-weight: 300;
+      animation: fadeInUp 1s forwards 0.5s;
+    }
+
+    /* Cycling headline messages to simulate a video narrative */
+    #animated-text {
+      margin-top: 50px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      height: 40px;
+      overflow: hidden;
+      position: relative;
+    }
+    #animated-text span {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      opacity: 0;
+      animation: slideText 12s infinite;
+    }
+    #animated-text span:nth-child(1) {
+      animation-delay: 0s;
+    }
+    #animated-text span:nth-child(2) {
+      animation-delay: 4s;
+    }
+    #animated-text span:nth-child(3) {
+      animation-delay: 8s;
+    }
+
+    @keyframes slideText {
+      0%, 10% {
+        opacity: 0;
+        transform: translateY(100%);
+      }
+      10%, 25% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      25%, 33% {
+        opacity: 0;
+        transform: translateY(-100%);
+      }
+    }
+
+    /* Call‑to‑action button with pulse effect */
+    .cta-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 15px 30px;
+      background: var(--accent-color);
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      animation: pulse 2s infinite;
+    }
+    .cta-button:hover {
+      filter: brightness(1.1);
+    }
+    @keyframes pulse {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(219, 155, 16, 0.4);
+      }
+      50% {
+        box-shadow: 0 0 15px 10px rgba(219, 155, 16, 0);
+      }
+    }
+
+    /* Section that simulates a video – encourages users to watch an informative clip */
+    .video-section {
+      background: var(--video-bg);
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .video-section h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--primary-color);
+    }
+    .video-container {
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    /* Use a gradient and play icon to hint at a video; this avoids linking to external resources */
+    .video-placeholder {
+      width: 100%;
+      height: 0;
+      padding-bottom: 56.25%; /* 16:9 ratio */
+      background: linear-gradient(145deg, var(--primary-color), var(--secondary-color));
+      position: relative;
+    }
+    .video-placeholder::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: pulse 2s infinite;
+    }
+    .video-placeholder::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-40%, -50%);
+      border-style: solid;
+      border-width: 12px 0 12px 20px;
+      border-color: transparent transparent transparent rgba(0, 0, 0, 0.8);
+    }
+    .video-caption {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #666;
+    }
+
+    /* Lead capture form styling */
+    form {
+      width: 100%;
+      max-width: 700px;
+      margin: 40px auto;
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    form h4 {
+      margin-bottom: 15px;
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      box-sizing: border-box;
+    }
+    .form-group textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    form button {
+      width: 100%;
+      padding: 15px;
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    form button:hover {
+      background: var(--secondary-color);
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Claim Confidence Check</h1>
+    <h2>Denied or underpaid on your insurance claim?</h2>
+    <div id="animated-text">
+      <span>You may be owed <strong>thousands more</strong></span>
+      <span>Don't let insurers dictate your future</span>
+      <span>Get a second opinion before it's too late</span>
+    </div>
+    <a href="#lead-form" class="cta-button">Start Your Video Review</a>
+  </header>
+
+  <section class="video-section">
+    <h3>See How a Second Look Can Unlock More Money</h3>
+    <div class="video-container">
+      <div class="video-placeholder"></div>
+    </div>
+    <p class="video-caption">
+      This simulated video shows how our experts can find overlooked coverage and help you recover more when your claim has been denied or underpaid.
+    </p>
+  </section>
+
+  <form id="lead-form">
+    <h4>Request Your Free Claim Review</h4>
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Your full name" required />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required />
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="(555) 555-1234" required />
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" id="city" placeholder="City" />
+    </div>
+    <div class="form-group">
+      <label for="zip">ZIP Code</label>
+      <input type="text" id="zip" placeholder="ZIP Code" />
+    </div>
+    <div class="form-group">
+      <label for="claim-type">Type of Claim</label>
+      <select id="claim-type">
+        <option>Fire/Wildfire</option>
+        <option>Water Damage</option>
+        <option>Wind/Hail</option>
+        <option>Theft/Vandalism</option>
+        <option>Earthquake</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="claim-status">Claim Status</label>
+      <select id="claim-status">
+        <option>Denied</option>
+        <option>Underpaid</option>
+        <option>Delayed</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="description">Brief Description of Your Claim</label>
+      <textarea id="description" placeholder="Provide any important details"></textarea>
+    </div>
+    <button type="submit">Get My Free Video Review Now</button>
+    <p style="font-size: 0.8rem; margin-top: 10px;">
+      By submitting this form, you agree to be contacted by Claim Confidence Check. We respect your privacy and will not share your information.
+    </p>
+  </form>
+</body>
+</html>
